@@ -9,6 +9,7 @@ console.log(validator.isEmail('adeel@example.com'));
 console.log(validator.isURL('https://mead.io'));
 console.log(chalk.magenta.bgWhite('Hello world!'));
 console.log(chalk.blue.bgYellow(validator.isURL('https://localhost:3000')));
+console.log(chalk.green('Success!'))
 
 // const addFunction = require('./utils.js');
 //
