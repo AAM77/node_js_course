@@ -9,3 +9,5 @@ if (command === 'add') {
 } else if (command === 'remove') {
   console.log('Removing note...');
 }
+
+console.log(process.argv[3]);
