@@ -17,7 +17,7 @@ yargs.command({
       demandOption: true,
       type: 'string'
     },
-    
+
     body: {
       describe: 'Note body',
       demandOption: true,
@@ -25,7 +25,10 @@ yargs.command({
     }
   },
   handler: function (argv) {
-    console.log('Title: ' + argv.title + '\n\nBody: ' + argv.body)
+    console.log(
+      'Title: ' + argv.title +
+      '\nBody: ' + argv.body
+    )
   }
 })
 
