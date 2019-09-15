@@ -30,9 +30,9 @@ const saveNotes = (notes) => {
 // calls saveNotes()
 const addNote = (title, body) => {
   const notes = loadNotes();
-  const duplicateNotes = notes.filter(note => note.title === title)
+  const duplicateNote = notes.find( note => note.title === title);
 
-  if (duplicateNotes.length >= 1) {
+  if (duplicateNote) {
     console.log(chalk.red('That title is already in use'))
   } else {
     notes.push({
@@ -64,6 +64,21 @@ const listNotes = () => {
   notes.forEach( note => console.log(chalk.cyan(note.title)));
 }
 
+// displays the note title & content (body)
+const readNote = (title) => {
+  const notes = loadNotes();
+  const matchingNote = notes.find( note => note.title === title );
+
+  if (matchingNote) {
+    console.log(chalk.green('\nTitle: \n') + matchingNote.title);
+    console.log(chalk.magenta('\nBody: \n') + matchingNote.body);
+  } else {
+    console.log(chalk.red('No note with title ' + chalk.yellow(title)))
+  }
+}
+
+
+
 
 
 // exports the addNotes & getNotes functions
@@ -71,5 +86,6 @@ module.exports = {
   getNotes: getNotes,
   addNote: addNote,
   removeNote: removeNote,
-  listNotes: listNotes
+  listNotes: listNotes,
+  readNote: readNote
 }
