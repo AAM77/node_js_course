@@ -70,6 +70,7 @@ const readNote = (title) => {
   const matchingNote = notes.find( note => note.title === title );
 
   if (matchingNote) {
+    console.log(chalk.white.inverse(' Note Found! '));
     console.log(chalk.green('\nTitle: \n') + matchingNote.title);
     console.log(chalk.magenta('\nBody: \n') + matchingNote.body);
   } else {
