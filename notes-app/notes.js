@@ -58,11 +58,18 @@ const removeNote = (title) => {
   }
 }
 
+// lists the title of each note
+const listNotes = () => {
+  const notes = loadNotes();
+  notes.forEach( note => console.log(chalk.cyan(note.title)));
+}
+
 
 
 // exports the addNotes & getNotes functions
 module.exports = {
   getNotes: getNotes,
   addNote: addNote,
-  removeNote: removeNote
+  removeNote: removeNote,
+  listNotes: listNotes
 }

@@ -51,7 +51,8 @@ yargs.command({
   command: 'list',
   describe: 'List the notes',
   handler() {
-    console.log('Listing all notes');
+    console.log(chalk.green('Listing all notes...'));
+    notes.listNotes();
   }
 })
 
