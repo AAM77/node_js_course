@@ -19,7 +19,7 @@ const loadNotes = function () {
 
 // takes in an argument notes &
 // writes it to a file called notes.json
-const saveNotes = function (notes) {
+const saveNotes = (notes) => {
   const notesJSON = JSON.stringify(notes);
   fs.writeFileSync('notes.json', notesJSON);
 }
@@ -28,7 +28,7 @@ const saveNotes = function (notes) {
 // Takes a title & body
 // Adds note if title is not taken. Returns an error if it is.
 // calls saveNotes()
-const addNote = function (title, body) {
+const addNote = (title, body) => {
   const notes = loadNotes();
   const duplicateNotes = notes.filter(note => note.title === title)
 
