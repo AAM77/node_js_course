@@ -30,7 +30,6 @@ const saveNotes = function (notes) {
 // calls saveNotes()
 const addNote = function (title, body) {
   const notes = loadNotes();
-
   const duplicateNotes = notes.filter(note => note.title === title)
 
   if (duplicateNotes.length >= 1) {
@@ -40,17 +39,30 @@ const addNote = function (title, body) {
       title: title,
       body: body
     })
-
     saveNotes(notes);
+    console.log(chalk.green('Note added.'));
   }
 }
 
+// removes a note if the title exists
+// else outputs that the title does not exist
+const removeNote = (title) => {
+  const notes = loadNotes();
+  const notesToKeep = notes.filter( note => note.title !== title );
 
+  if (notesToKeep.length === notes.length) {
+    console.log(chalk.red(`Sorry. No note with title ${chalk.yellow(title)}`));
+  } else {
+    saveNotes(notesToKeep);
+    console.log(chalk.green('Note removed.'));
+  }
+}
 
 
 
 // exports the addNotes & getNotes functions
 module.exports = {
   getNotes: getNotes,
-  addNote: addNote
+  addNote: addNote,
+  removeNote: removeNote
 }
