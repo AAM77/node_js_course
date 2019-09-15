@@ -1,8 +1,6 @@
 const fs = require('fs');
 const chalk = require('chalk');
 
-const getNotes = () => 'Your notes...';
-
 // loads notes from a file if it exists
 // returns an empty array if it doesn't
 const loadNotes = function () {
@@ -80,11 +78,8 @@ const readNote = (title) => {
 
 
 
-
-
 // exports the addNotes & getNotes functions
 module.exports = {
-  getNotes: getNotes,
   addNote: addNote,
   removeNote: removeNote,
   listNotes: listNotes,
